@@ -33,7 +33,7 @@ import { motion } from "framer-motion";
 import Navigation from "../../Navigation";
 import status from "./status.json";
 import StatusComponents from "../../components/StatusComponents";
-import Footer from "@/app/Footer";
+import Footer from "../../Footer";
 
 function Status() {
   return (

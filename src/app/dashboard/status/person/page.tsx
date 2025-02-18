@@ -9,7 +9,7 @@ import "@fontsource/poppins";
 import { Typography } from "@mui/material";
 import Navigation from "../../../Navigation";
 import BackToTopButton from "../../../BackToTopButton";
-import directus from "@/app/lib/directus";
+import directus from "../../../lib/directus";
 import { readItems } from "@directus/sdk";
 
 async function getPerson() {

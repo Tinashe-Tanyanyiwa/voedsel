@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import directus from "@/app/lib/directus";
+import directus from "../lib/directus";
 import { readItems } from "@directus/sdk";
 import { useEffect, useState } from "react";
 

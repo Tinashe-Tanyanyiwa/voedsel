@@ -34,7 +34,7 @@ import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import { motion } from "framer-motion";
 import Stack from "@mui/material/Stack";
-// import directus from "@/app/lib/directus";
+
 
 const api = process.env.NEXT_PUBLIC_API_URL as string;
 const directus = createDirectus(api).with(authentication()).with(rest());
