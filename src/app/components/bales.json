@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "text": "In Transit",
+        "attributes": "Background Image",
+        "icon": "/Images/status.svg",
+        "image": "/Images/transit.jpg",
+        "link": "/dashboard/status/transit",
+        "amount": 20
+    },
+    {
+        "id": 2,
+        "text": "Ware House",
+        "attributes": "Background Image",
+        "icon": "/Images/viewExisting.svg",
+        "image": "/Images/warehouse.jpg",
+        "link": "/dashboard/status",
+        "amount": 23
+    },
+    {
+        "id": 3,
+        "text": "Sold",
+        "attributes": "Background Image",
+        "icon": "/Images/scanBales.png",
+        "image": "/Images/sold.jpg",
+        "link": "/dashboard/status",
+        "amount": 22
+    }
+]

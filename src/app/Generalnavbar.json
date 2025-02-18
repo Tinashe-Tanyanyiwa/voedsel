@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "link": "/dashboard",
+    "attribute": "Home",
+    "function": ""
+  },
+  {
+    "id": 2,
+    "link": "/dashboard/scan",
+    "attribute": "Scan",
+    "function": ""
+  },
+  {
+    "id": 3,
+    "link": "/dashboard/new",
+    "attribute": "Add New",
+    "function": ""
+  },
+  {
+    "id": 4,
+    "link": "/dashboard/status",
+    "attribute": "Existing",
+    "function": ""
+  },
+  {
+    "id": 5,
+    "link": "/",
+    "attribute": "Logout",
+    "function": "logout"
+  }
+]

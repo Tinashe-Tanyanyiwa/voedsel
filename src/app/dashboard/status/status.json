@@ -1,0 +1,39 @@
+[
+   
+    {
+        "id": 1,
+        "text": "Bales In Transit",
+        "attributes": "Background Image",
+        "icon": "/Images/status.svg",
+        "image": "/Images/transit.png",
+        "link": "/dashboard/status/transit",
+        "amount": 20
+    },
+    {
+        "id": 2,
+        "text": "Bales In The Ware House",
+        "attributes": "Background Image",
+        "icon": "/Images/viewExisting.svg",
+        "image": "/Images/warehouse.png",
+        "link": "/dashboard/status/warehouse",
+        "amount": 23
+    },
+    {
+        "id": 3,
+        "text": "Bales Sold",
+        "attributes": "Background Image",
+        "icon": "/Images/scanBales.png",
+        "image": "/Images/sold.png",
+        "link": "/dashboard/status/sold",
+        "amount": 22
+    }, {
+        "id": 4,
+        "text": "All Bales",
+        "attributes": "Background Image",
+        "icon": "/Images/scanBales.png",
+        "image": "/Images/all.png",
+        "link": "/dashboard/status/all",
+        "amount": 100
+    }
+   
+]

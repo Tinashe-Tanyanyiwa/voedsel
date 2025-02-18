@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "text": "View Exisiting Bales",
+        "attributes": "Background Image",
+        "icon": "/Images/status.svg",
+        "image": "/Images/tobaccoBales.jpg",
+        "link": "/dashboard/status"
+    },
+    {
+        "id": 2,
+        "text": "Scan Bales",
+        "attributes": "Background Image",
+        "icon": "/Images/Scan.svg",
+        "image": "/Images/tobaccoBalesOne.jpg",
+        "link": "/dashboard/scan"
+    },
+    {
+        "id": 3,
+        "text": "Add New Bales",
+        "attributes": "Background Image",
+        "icon": "/Images/addNew.svg",
+        "image": "/Images/tobaccoBalesTwo.jpg",
+        "link": "/dashboard/new"
+    },
+    {
+        "id": 4,
+        "text": "Farmers",
+        "attributes": "Background Image",
+        "icon": "/Images/Farmer.svg",
+        "image": "/Images/farmer.jpg",
+        "link": "/dashboard/farmers"
+    }
+]

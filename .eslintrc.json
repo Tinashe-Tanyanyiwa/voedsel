@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended" // For TypeScript support
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // Your custom rules here
+  }
+}
