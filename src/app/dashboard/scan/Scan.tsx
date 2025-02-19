@@ -330,6 +330,7 @@ function Scan() {
                   style={{ width: "100%" }}
                   onError={handleErrorWebCam}
                   onScan={handleScanWebCam}
+                  facingMode="environment"
                 />
               )}
               <Stack direction="row">

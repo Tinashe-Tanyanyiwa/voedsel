@@ -6,6 +6,7 @@ declare module "react-qr-reader" {
     onError?: (error: Error) => void;
     onScan?: (result: string | null) => void;
     style?: React.CSSProperties;
+    facingMode?: string;
   }
 
   export default class QrReader extends Component<QrReaderProps> {}

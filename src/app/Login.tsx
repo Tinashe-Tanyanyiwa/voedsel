@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import "./page.module.css";
+import styles from "./page.module.css";
 import * as React from "react";
 import { useEffect } from "react";
 import SendIcon from "@mui/icons-material/Send";

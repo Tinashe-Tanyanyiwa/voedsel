@@ -46,7 +46,7 @@ interface person {
 
 const api = process.env.NEXT_PUBLIC_API_URL as string;
 const token = process.env.NEXT_PUBLIC_ACCESS_TOKEN as string;
-console.log("Your API Is: ", api);
+// console.log("Your API Is: ", api);
 // Client with GraphQL support
 const directus = createDirectus(api)
   .with(staticToken(token))

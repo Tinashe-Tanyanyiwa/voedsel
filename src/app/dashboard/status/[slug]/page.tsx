@@ -677,8 +677,8 @@ const Page = ({ params }: PageProps) => {
                                             <Accordion disabled>
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-content"
-                                                id="panel1bh-header"
+                                                aria-controls="panel1bh-id"
+                                                id="panelid"
                                               >
                                                 <Typography
                                                   component="span"
@@ -733,8 +733,11 @@ const Page = ({ params }: PageProps) => {
                                             >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-content"
-                                                id="panel1bh-header"
+                                                aria-controls="panel1bh-seedvariant"
+                                                id="panelseedvariant"
+                                                onClick={(event) => {
+                                                  event.preventDefault();
+                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -802,11 +805,18 @@ const Page = ({ params }: PageProps) => {
                                                 </TextField>
                                               </AccordionDetails>
                                             </Accordion>
-                                            <Accordion>
+                                            <Accordion
+                                              slotProps={{
+                                                transition: { timeout: 0 },
+                                              }}
+                                            >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-content"
-                                                id="panel1bh-header"
+                                                aria-controls="panel1bh-netweight"
+                                                id="panelnetweight"
+                                                onClick={(event) => {
+                                                  event.preventDefault();
+                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -860,11 +870,21 @@ const Page = ({ params }: PageProps) => {
                                                 />
                                               </AccordionDetails>
                                             </Accordion>
-                                            <Accordion>
+                                            <Accordion
+                                              slotProps={{
+                                                transition: {
+                                                  timeout: 0,
+                                                  unmountOnExit: true,
+                                                },
+                                              }}
+                                            >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-content"
-                                                id="panel1bh-header"
+                                                aria-controls="panel1bh-time"
+                                                id="paneltime"
+                                                onClick={(event) => {
+                                                  event.preventDefault();
+                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -917,11 +937,18 @@ const Page = ({ params }: PageProps) => {
                                                 />
                                               </AccordionDetails>
                                             </Accordion>
-                                            <Accordion>
+                                            <Accordion
+                                              slotProps={{
+                                                transition: { timeout: 0 },
+                                              }}
+                                            >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-content"
-                                                id="panel1bh-header"
+                                                aria-controls="panel1bh-grade"
+                                                id="panelgrade"
+                                                onClick={(event) => {
+                                                  event.preventDefault();
+                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -987,11 +1014,18 @@ const Page = ({ params }: PageProps) => {
                                                 </TextField>
                                               </AccordionDetails>
                                             </Accordion>
-                                            <Accordion>
+                                            <Accordion
+                                              slotProps={{
+                                                transition: { timeout: 0 },
+                                              }}
+                                            >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-content"
-                                                id="panel1bh-header"
+                                                aria-controls="panel1bh-balestatus"
+                                                id="panelstatus"
+                                                 onClick={(event) => {
+                                                  event.preventDefault();
+                                                }}
                                               >
                                                 <Typography
                                                   component="span"

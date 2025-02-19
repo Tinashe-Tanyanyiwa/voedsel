@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import "./page.module.css";
+import styles from "./page.module.css";
 import * as React from "react";
 import { motion } from "framer-motion";
 import useState from "react";
@@ -81,7 +81,7 @@ function Footer() {
               marginTop: "0px",
             }}
           >
-            ©{year} Copyright Leaf Exchange Africa. All Rights Reserved.
+            ©{year} Copyright Voedsel Tobacco International. All Rights Reserved.
           </Typography>
         </Grid>
       </Grid>
@@ -124,7 +124,7 @@ function Footer() {
               margin: "0px",
             }}
           >
-            Designed by Leaf Exchange Africa.
+            Designed by Voedsel Tobacco International.
           </Typography>
         </Grid>
       </Grid>
