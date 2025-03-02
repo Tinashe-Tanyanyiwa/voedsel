@@ -394,10 +394,9 @@ const Page = ({ params }: PageProps) => {
 
   // Update Item
   const updateBales = async () => {
-    // Check if updateID has a valid value
     if (!updateID) {
       console.log("No valid updateID. Aborting update.");
-      return; // Exit if updateID is not valid
+      return;
     }
 
     const updatebalesobject = {
@@ -409,42 +408,47 @@ const Page = ({ params }: PageProps) => {
     };
 
     try {
-      const updatebales = await directus.request(
-        updateItem("bales", updateID, updatebalesobject)
-      );
-      localStorage.setItem("baleUpdated", "true");
-      window.location.reload();
-
-      return updatebales;
+      setLoading(true);
+      await directus.request(updateItem("bales", updateID, updatebalesobject));
+      // Instead of reloading, you can update the state here
+      const updatedBales = await getBales(); // Refetch the updated bales
+      setBales(updatedBales); // Update the state with new bales
     } catch (error) {
-      // console.log(netweight, balestatus2, grade, seedvariant, time);
       console.error("Error Updating bale:", error);
       notFound();
+    } finally {
+      handleClose();
+      setLoading(false);
     }
   };
 
   // Delete Item
   const deleteBales = async () => {
-    // Check if updateID has a valid value
+    // Check if updateIDDelete has a valid value
     if (!updateIDDelete) {
-      console.log("No valid updateID. Aborting Delete.");
+      console.log("No valid updateID. Aborting delete.");
       return; // Exit if updateID is not valid
     }
 
     try {
-      const updatebalesDelete = await directus.request(
-        deleteItem("bales", updateIDDelete)
-      );
-      localStorage.setItem("baleUpdated", "true");
-      window.location.reload();
+      setLoading(true); // Set loading to true before starting the delete
+
+      // Perform the delete request
+      await directus.request(deleteItem("bales", updateIDDelete));
+
+      // Optionally, refetch the updated bales to sync the state
+      const updatedBales = await getBales();
+      setBales(updatedBales); // Update the state with new bales
+
+      // Close the dialog
       handleCloseDialog();
-      return updatebalesDelete;
     } catch (error) {
-      console.error("Error Deleting bale:", error);
-      notFound();
+      console.error("Error deleting bale:", error);
+      notFound(); // Handle the error appropriately
+    } finally {
+      setLoading(false); // Reset loading state after the operation
     }
   };
-
   return (
     <div>
       <div className={styles.center} style={{ width: "100%" }}>
@@ -653,7 +657,7 @@ const Page = ({ params }: PageProps) => {
                                 </Button>
                                 <Modal
                                   open={open}
-                                  // onClose={handleClose}
+                                  disableEnforceFocus
                                   aria-labelledby="modal-modal-title"
                                   aria-describedby="modal-modal-description"
                                 >
@@ -1100,7 +1104,10 @@ const Page = ({ params }: PageProps) => {
                                         <Button
                                           size="small"
                                           sx={{ color: "#61740e" }}
-                                          onClick={updateBales}
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            updateBales();
+                                          }}
                                         >
                                           Update Content
                                         </Button>
@@ -1135,7 +1142,7 @@ const Page = ({ params }: PageProps) => {
                                 </Button>
                                 <Dialog
                                   open={openDialog}
-                                  // onClose={handleCloseDialog}
+                                  disableEnforceFocus
                                   aria-labelledby="alert-dialog-title"
                                   aria-describedby="alert-dialog-description"
                                 >
