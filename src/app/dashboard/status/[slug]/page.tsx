@@ -562,6 +562,458 @@ const Page = ({ params }: PageProps) => {
                       {balestatus ? balestatus.title : "No title available"}
                     </Typography>
                   </Grid>{" "}
+                  <Modal
+                    open={open}
+                    disableEnforceFocus
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box>
+                      <Card sx={{ minWidth: 275 }}>
+                        <CardContent>
+                          <Typography
+                            sx={{
+                              fontFamily: "Open Sans",
+                              fontSize: "24px",
+                              fontStyle: "normal",
+                              fontWeight: "600",
+                              margin: "20px 0px",
+                            }}
+                            color="text.primary"
+                          >
+                            Updates
+                          </Typography>
+                          {selectedBale ? (
+                            <>
+                              <Accordion disabled>
+                                <AccordionSummary
+                                  expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1bh-id"
+                                  id="panelid"
+                                >
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      width: "33%",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    ID
+                                  </Typography>
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      color: "text.secondary",
+                                    }}
+                                  >
+                                    {selectedBale.id || "Bale ID"}
+                                  </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <TextField
+                                    fullWidth
+                                    id="standard-basic"
+                                    label="New ID"
+                                    variant="standard"
+                                    sx={{
+                                      margin: "0px !important",
+                                      marginBottom: "36px !important",
+                                      "& .MuiInput-underline:before": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInput-underline:after": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInputLabel-root.Mui-focused": {
+                                        color: "#f7ae1a",
+                                      },
+                                    }}
+                                  />
+                                </AccordionDetails>
+                              </Accordion>
+                              <Accordion
+                                onClick={(e) => e.preventDefault()}
+                                slotProps={{
+                                  transition: {
+                                    timeout: 0,
+                                    unmountOnExit: true,
+                                  },
+                                }}
+                              >
+                                <AccordionSummary
+                                  expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1bh-seedvariant"
+                                  id="panelseedvariant"
+                                >
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      width: "33%",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    Seed Variant
+                                  </Typography>
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      color: "text.secondary",
+                                    }}
+                                  >
+                                    {selectedBale.seedvariant || "Seed Variant"}
+                                  </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <TextField
+                                    fullWidth
+                                    id="standard-select-currency"
+                                    select
+                                    label="New Seed Variant"
+                                    defaultValue="EUR"
+                                    helperText="Please select the Seed"
+                                    value={seedvariant}
+                                    variant="standard"
+                                    onChange={(e) => {
+                                      console.log(e.target.value);
+                                      setSeedvariant(e.target.value);
+                                    }}
+                                    sx={{
+                                      margin: "0px !important",
+                                      marginBottom: "36px !important",
+                                      "& .MuiInput-underline:before": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInput-underline:after": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInputLabel-root.Mui-focused": {
+                                        color: "#f7ae1a",
+                                      },
+                                    }}
+                                  >
+                                    {seedVariant.map((option) => (
+                                      <MenuItem
+                                        key={option.value}
+                                        value={option.value}
+                                      >
+                                        {option.label}
+                                      </MenuItem>
+                                    ))}
+                                  </TextField>
+                                </AccordionDetails>
+                              </Accordion>
+                              <Accordion
+                                slotProps={{
+                                  transition: {
+                                    timeout: 0,
+                                    unmountOnExit: true,
+                                  },
+                                }}
+                              >
+                                <AccordionSummary
+                                  expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1bh-netweight"
+                                  id="panelnetweight"
+                                >
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      width: "33%",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    Net Weight
+                                  </Typography>
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      color: "text.secondary",
+                                    }}
+                                  >
+                                    {selectedBale.netweight || 80}
+                                    kg
+                                  </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <TextField
+                                    fullWidth
+                                    id="netweight"
+                                    label="Net Weight"
+                                    variant="standard"
+                                    type="number"
+                                    value={netweight}
+                                    onChange={(e) =>
+                                      setNetweight(e.target.value)
+                                    }
+                                    sx={{
+                                      margin: "0px !important",
+                                      marginBottom: "36px !important",
+                                      "& .MuiInput-underline:before": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInput-underline:after": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInputLabel-root.Mui-focused": {
+                                        color: "#f7ae1a",
+                                      },
+                                    }}
+                                  />
+                                </AccordionDetails>
+                              </Accordion>
+                              <Accordion
+                                slotProps={{
+                                  transition: {
+                                    timeout: 0,
+                                    unmountOnExit: true,
+                                  },
+                                }}
+                              >
+                                <AccordionSummary
+                                  expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1bh-time"
+                                  id="paneltime"
+                                >
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      width: "33%",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    Time
+                                  </Typography>
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      color: "text.secondary",
+                                    }}
+                                  >
+                                    {selectedBale.time || "Time"}
+                                  </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <TextField
+                                    fullWidth
+                                    type="time"
+                                    id="time-input"
+                                    //   label="Date"
+                                    variant="standard"
+                                    value={time}
+                                    onChange={(e) => setTime(e.target.value)}
+                                    sx={{
+                                      margin: "0px !important",
+                                      marginBottom: "36px !important",
+                                      "& .MuiInput-underline:before": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInput-underline:after": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInputLabel-root.Mui-focused": {
+                                        color: "#f7ae1a",
+                                      },
+                                    }}
+                                  />
+                                </AccordionDetails>
+                              </Accordion>
+                              <Accordion
+                                slotProps={{
+                                  transition: {
+                                    timeout: 0,
+                                    unmountOnExit: true,
+                                  },
+                                }}
+                              >
+                                <AccordionSummary
+                                  expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1bh-grade"
+                                  id="panelgrade"
+                                >
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      width: "33%",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    Grade
+                                  </Typography>
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      color: "text.secondary",
+                                    }}
+                                  >
+                                    {selectedBale.grade || "Grade"}
+                                  </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <TextField
+                                    fullWidth
+                                    id="standard-select-currency"
+                                    select
+                                    label="Select"
+                                    defaultValue="EUR"
+                                    helperText="Please select the grade"
+                                    value={grade}
+                                    variant="standard"
+                                    onChange={(e) => {
+                                      console.log(e.target.value);
+                                      setGrade(e.target.value);
+                                    }}
+                                    sx={{
+                                      margin: "0px !important",
+                                      marginBottom: "36px !important",
+                                      "& .MuiInput-underline:before": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInput-underline:after": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInputLabel-root.Mui-focused": {
+                                        color: "#f7ae1a",
+                                      },
+                                    }}
+                                  >
+                                    {gradeInput.map((option) => (
+                                      <MenuItem
+                                        key={option.value}
+                                        value={option.value}
+                                      >
+                                        {option.label}
+                                      </MenuItem>
+                                    ))}
+                                  </TextField>
+                                </AccordionDetails>
+                              </Accordion>
+                              <Accordion
+                                slotProps={{
+                                  transition: {
+                                    timeout: 0,
+                                    unmountOnExit: true,
+                                  },
+                                }}
+                              >
+                                <AccordionSummary
+                                  expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1bh-balestatus"
+                                  id="panelstatus"
+                                >
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      width: "33%",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    Bale Status
+                                  </Typography>
+                                  <Typography
+                                    component="span"
+                                    sx={{
+                                      color: "text.secondary",
+                                    }}
+                                  >
+                                    {selectedBale.balestatus || "Bale Status"}
+                                  </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <TextField
+                                    fullWidth
+                                    id="standard-select-currency"
+                                    select
+                                    label="Select"
+                                    defaultValue="EUR"
+                                    helperText="Please select the Bale Status"
+                                    value={balestatus2}
+                                    variant="standard"
+                                    onChange={(e) =>
+                                      setBalestatus2(e.target.value)
+                                    }
+                                    sx={{
+                                      margin: "0px !important",
+                                      marginBottom: "36px !important",
+                                      "& .MuiInput-underline:before": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInput-underline:after": {
+                                        borderBottomColor: "#f7ae1a",
+                                      },
+                                      "& .MuiInputLabel-root.Mui-focused": {
+                                        color: "#f7ae1a",
+                                      },
+                                    }}
+                                  >
+                                    {status.map((option) => (
+                                      <MenuItem
+                                        key={option.value}
+                                        value={option.value}
+                                      >
+                                        {option.label}
+                                      </MenuItem>
+                                    ))}
+                                  </TextField>
+                                </AccordionDetails>
+                              </Accordion>
+                            </>
+                          ) : (
+                            <Typography>No bale selected</Typography>
+                          )}
+                        </CardContent>
+                        <CardActions>
+                          <Button
+                            size="small"
+                            sx={{ color: "#61740e" }}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              updateBales();
+                            }}
+                          >
+                            Update Content
+                          </Button>
+
+                          <Button
+                            size="small"
+                            sx={{ color: "red" }}
+                            onClick={handleClose}
+                          >
+                            Cancel
+                          </Button>
+                        </CardActions>
+                      </Card>
+                    </Box>
+                  </Modal>
+                  <Dialog
+                    open={openDialog}
+                    disableEnforceFocus
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                  >
+                    <DialogTitle id="alert-dialog-title">
+                      {"Delete Bales"}
+                    </DialogTitle>
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-description">
+                        Are you sure you want to Delete Bale {updateIDDelete}?
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button
+                        sx={{ color: "#f5ae19" }}
+                        onClick={handleCloseDialog}
+                      >
+                        No
+                      </Button>
+                      <Button
+                        onClick={deleteBales}
+                        autoFocus
+                        sx={{ color: "red" }}
+                      >
+                        Yes
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
                   <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                       <TableHead sx={{ background: "#000" }}>
@@ -655,474 +1107,7 @@ const Page = ({ params }: PageProps) => {
                                 >
                                   Update
                                 </Button>
-                                <Modal
-                                  open={open}
-                                  disableEnforceFocus
-                                  aria-labelledby="modal-modal-title"
-                                  aria-describedby="modal-modal-description"
-                                >
-                                  <Box>
-                                    <Card sx={{ minWidth: 275 }}>
-                                      <CardContent>
-                                        <Typography
-                                          sx={{
-                                            fontFamily: "Open Sans",
-                                            fontSize: "24px",
-                                            fontStyle: "normal",
-                                            fontWeight: "600",
-                                            margin: "20px 0px",
-                                          }}
-                                          color="text.primary"
-                                        >
-                                          Updates
-                                        </Typography>
-                                        {selectedBale ? (
-                                          <>
-                                            <Accordion disabled>
-                                              <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-id"
-                                                id="panelid"
-                                              >
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    width: "33%",
-                                                    flexShrink: 0,
-                                                  }}
-                                                >
-                                                  ID
-                                                </Typography>
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    color: "text.secondary",
-                                                  }}
-                                                >
-                                                  {selectedBale.id || "Bale ID"}
-                                                </Typography>
-                                              </AccordionSummary>
-                                              <AccordionDetails>
-                                                <TextField
-                                                  fullWidth
-                                                  id="standard-basic"
-                                                  label="New ID"
-                                                  variant="standard"
-                                                  sx={{
-                                                    margin: "0px !important",
-                                                    marginBottom:
-                                                      "36px !important",
-                                                    "& .MuiInput-underline:before":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInput-underline:after":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInputLabel-root.Mui-focused":
-                                                      {
-                                                        color: "#f7ae1a",
-                                                      },
-                                                  }}
-                                                />
-                                              </AccordionDetails>
-                                            </Accordion>
-                                            <Accordion
-                                              slotProps={{
-                                                transition: {
-                                                  timeout: 0,
-                                                  unmountOnExit: true,
-                                                },
-                                              }}
-                                            >
-                                              <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-seedvariant"
-                                                id="panelseedvariant"
-                                              >
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    width: "33%",
-                                                    flexShrink: 0,
-                                                  }}
-                                                >
-                                                  Seed Variant
-                                                </Typography>
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    color: "text.secondary",
-                                                  }}
-                                                >
-                                                  {selectedBale.seedvariant ||
-                                                    "Seed Variant"}
-                                                </Typography>
-                                              </AccordionSummary>
-                                              <AccordionDetails>
-                                                <TextField
-                                                  fullWidth
-                                                  id="standard-select-currency"
-                                                  select
-                                                  label="New Seed Variant"
-                                                  defaultValue="EUR"
-                                                  helperText="Please select the Seed"
-                                                  value={seedvariant}
-                                                  variant="standard"
-                                                  onChange={(e) => {
-                                                    console.log(e.target.value);
-                                                    setSeedvariant(
-                                                      e.target.value
-                                                    );
-                                                  }}
-                                                  sx={{
-                                                    margin: "0px !important",
-                                                    marginBottom:
-                                                      "36px !important",
-                                                    "& .MuiInput-underline:before":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInput-underline:after":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInputLabel-root.Mui-focused":
-                                                      {
-                                                        color: "#f7ae1a",
-                                                      },
-                                                  }}
-                                                >
-                                                  {seedVariant.map((option) => (
-                                                    <MenuItem
-                                                      key={option.value}
-                                                      value={option.value}
-                                                    >
-                                                      {option.label}
-                                                    </MenuItem>
-                                                  ))}
-                                                </TextField>
-                                              </AccordionDetails>
-                                            </Accordion>
-                                            <Accordion
-                                              slotProps={{
-                                                transition: {
-                                                  timeout: 0,
-                                                  unmountOnExit: true,
-                                                },
-                                              }}
-                                            >
-                                              <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-netweight"
-                                                id="panelnetweight"
-                                              >
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    width: "33%",
-                                                    flexShrink: 0,
-                                                  }}
-                                                >
-                                                  Net Weight
-                                                </Typography>
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    color: "text.secondary",
-                                                  }}
-                                                >
-                                                  {selectedBale.netweight || 80}
-                                                  kg
-                                                </Typography>
-                                              </AccordionSummary>
-                                              <AccordionDetails>
-                                                <TextField
-                                                  fullWidth
-                                                  id="netweight"
-                                                  label="Net Weight"
-                                                  variant="standard"
-                                                  type="number"
-                                                  value={netweight}
-                                                  onChange={(e) =>
-                                                    setNetweight(e.target.value)
-                                                  }
-                                                  sx={{
-                                                    margin: "0px !important",
-                                                    marginBottom:
-                                                      "36px !important",
-                                                    "& .MuiInput-underline:before":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInput-underline:after":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInputLabel-root.Mui-focused":
-                                                      {
-                                                        color: "#f7ae1a",
-                                                      },
-                                                  }}
-                                                />
-                                              </AccordionDetails>
-                                            </Accordion>
-                                            <Accordion
-                                              slotProps={{
-                                                transition: {
-                                                  timeout: 0,
-                                                  unmountOnExit: true,
-                                                },
-                                              }}
-                                            >
-                                              <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-time"
-                                                id="paneltime"
-                                              >
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    width: "33%",
-                                                    flexShrink: 0,
-                                                  }}
-                                                >
-                                                  Time
-                                                </Typography>
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    color: "text.secondary",
-                                                  }}
-                                                >
-                                                  {selectedBale.time || "Time"}
-                                                </Typography>
-                                              </AccordionSummary>
-                                              <AccordionDetails>
-                                                <TextField
-                                                  fullWidth
-                                                  type="time"
-                                                  id="time-input"
-                                                  //   label="Date"
-                                                  variant="standard"
-                                                  value={time}
-                                                  onChange={(e) =>
-                                                    setTime(e.target.value)
-                                                  }
-                                                  sx={{
-                                                    margin: "0px !important",
-                                                    marginBottom:
-                                                      "36px !important",
-                                                    "& .MuiInput-underline:before":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInput-underline:after":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInputLabel-root.Mui-focused":
-                                                      {
-                                                        color: "#f7ae1a",
-                                                      },
-                                                  }}
-                                                />
-                                              </AccordionDetails>
-                                            </Accordion>
-                                            <Accordion
-                                              slotProps={{
-                                                transition: {
-                                                  timeout: 0,
-                                                  unmountOnExit: true,
-                                                },
-                                              }}
-                                            >
-                                              <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-grade"
-                                                id="panelgrade"
-                                              >
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    width: "33%",
-                                                    flexShrink: 0,
-                                                  }}
-                                                >
-                                                  Grade
-                                                </Typography>
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    color: "text.secondary",
-                                                  }}
-                                                >
-                                                  {selectedBale.grade ||
-                                                    "Grade"}
-                                                </Typography>
-                                              </AccordionSummary>
-                                              <AccordionDetails>
-                                                <TextField
-                                                  fullWidth
-                                                  id="standard-select-currency"
-                                                  select
-                                                  label="Select"
-                                                  defaultValue="EUR"
-                                                  helperText="Please select the grade"
-                                                  value={grade}
-                                                  variant="standard"
-                                                  onChange={(e) => {
-                                                    console.log(e.target.value);
-                                                    setGrade(e.target.value);
-                                                  }}
-                                                  sx={{
-                                                    margin: "0px !important",
-                                                    marginBottom:
-                                                      "36px !important",
-                                                    "& .MuiInput-underline:before":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInput-underline:after":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInputLabel-root.Mui-focused":
-                                                      {
-                                                        color: "#f7ae1a",
-                                                      },
-                                                  }}
-                                                >
-                                                  {gradeInput.map((option) => (
-                                                    <MenuItem
-                                                      key={option.value}
-                                                      value={option.value}
-                                                    >
-                                                      {option.label}
-                                                    </MenuItem>
-                                                  ))}
-                                                </TextField>
-                                              </AccordionDetails>
-                                            </Accordion>
-                                            <Accordion
-                                              slotProps={{
-                                                transition: {
-                                                  timeout: 0,
-                                                  unmountOnExit: true,
-                                                },
-                                              }}
-                                            >
-                                              <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon />}
-                                                aria-controls="panel1bh-balestatus"
-                                                id="panelstatus"
-                                              >
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    width: "33%",
-                                                    flexShrink: 0,
-                                                  }}
-                                                >
-                                                  Bale Status
-                                                </Typography>
-                                                <Typography
-                                                  component="span"
-                                                  sx={{
-                                                    color: "text.secondary",
-                                                  }}
-                                                >
-                                                  {selectedBale.balestatus ||
-                                                    "Bale Status"}
-                                                </Typography>
-                                              </AccordionSummary>
-                                              <AccordionDetails>
-                                                <TextField
-                                                  fullWidth
-                                                  id="standard-select-currency"
-                                                  select
-                                                  label="Select"
-                                                  defaultValue="EUR"
-                                                  helperText="Please select the Bale Status"
-                                                  value={balestatus2}
-                                                  variant="standard"
-                                                  onChange={(e) =>
-                                                    setBalestatus2(
-                                                      e.target.value
-                                                    )
-                                                  }
-                                                  sx={{
-                                                    margin: "0px !important",
-                                                    marginBottom:
-                                                      "36px !important",
-                                                    "& .MuiInput-underline:before":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInput-underline:after":
-                                                      {
-                                                        borderBottomColor:
-                                                          "#f7ae1a",
-                                                      },
-                                                    "& .MuiInputLabel-root.Mui-focused":
-                                                      {
-                                                        color: "#f7ae1a",
-                                                      },
-                                                  }}
-                                                >
-                                                  {status.map((option) => (
-                                                    <MenuItem
-                                                      key={option.value}
-                                                      value={option.value}
-                                                    >
-                                                      {option.label}
-                                                    </MenuItem>
-                                                  ))}
-                                                </TextField>
-                                              </AccordionDetails>
-                                            </Accordion>
-                                          </>
-                                        ) : (
-                                          <Typography>
-                                            No bale selected
-                                          </Typography>
-                                        )}
-                                      </CardContent>
-                                      <CardActions>
-                                        <Button
-                                          size="small"
-                                          sx={{ color: "#61740e" }}
-                                          onClick={(e) => {
-                                            e.preventDefault();
-                                            updateBales();
-                                          }}
-                                        >
-                                          Update Content
-                                        </Button>
 
-                                        <Button
-                                          size="small"
-                                          sx={{ color: "red" }}
-                                          onClick={handleClose}
-                                        >
-                                          Cancel
-                                        </Button>
-                                      </CardActions>
-                                    </Card>
-                                  </Box>
-                                </Modal>
                                 <Button
                                   sx={{
                                     // marginRight: "10px",
@@ -1140,37 +1125,6 @@ const Page = ({ params }: PageProps) => {
                                 >
                                   Delete
                                 </Button>
-                                <Dialog
-                                  open={openDialog}
-                                  disableEnforceFocus
-                                  aria-labelledby="alert-dialog-title"
-                                  aria-describedby="alert-dialog-description"
-                                >
-                                  <DialogTitle id="alert-dialog-title">
-                                    {"Delete Bales"}
-                                  </DialogTitle>
-                                  <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                      Are you sure you want to Delete Bale{" "}
-                                      {updateIDDelete}?
-                                    </DialogContentText>
-                                  </DialogContent>
-                                  <DialogActions>
-                                    <Button
-                                      sx={{ color: "#f5ae19" }}
-                                      onClick={handleCloseDialog}
-                                    >
-                                      No
-                                    </Button>
-                                    <Button
-                                      onClick={deleteBales}
-                                      autoFocus
-                                      sx={{ color: "red" }}
-                                    >
-                                      Yes
-                                    </Button>
-                                  </DialogActions>
-                                </Dialog>
                               </Stack>
                             </TableCell>
                           </TableRow>

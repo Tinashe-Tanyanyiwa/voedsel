@@ -57,6 +57,7 @@ function Scan() {
   const [scanResultWebCam, setScanResultWebCam] = useState("");
   const [updateID, setUpdateID] = useState(0);
   const [bale, setBale] = useState<Bale | null>(null);
+  const [loading, setLoading] = useState(true);
   // const qrRef = useRef(null);
 
   const restart = () => {
@@ -78,8 +79,11 @@ function Scan() {
       // Check if scanResultWebCam has a valid value
       if (!scanResultWebCam) {
         console.log("No valid updateID. Aborting update.");
+        setLoading(false); // Stop loading if no valid scanResultWebCam
         return; // Exit if scanResultWebCam is not valid
       }
+
+      setLoading(true); // Set loading to true before fetching
 
       try {
         const updatebale = await directus.request(
@@ -87,12 +91,11 @@ function Scan() {
         );
         console.log(updatebale);
         setBale(updatebale);
-        // Optionally reset scanResultWebCam or perform other actions
-        // setScanResultWebCam("");
-        return updatebale;
       } catch (error) {
         console.log("Error Showing bale:", error);
         notFound();
+      } finally {
+        setLoading(false); // Set loading to false after fetching
       }
     };
 
@@ -185,37 +188,6 @@ function Scan() {
                 Scan Bales
               </Typography>
             </Grid>{" "}
-            {/* <Grid
-              item
-              xs={12}
-              className="column"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                paddingLeft: "0px !important",
-                paddingTop: "0px !important",
-                width: "100%",
-                marginTop: "0px",
-                marginBottom: "26px",
-              }}
-            >
-              {scanResultWebCam && (
-                <Typography
-                  sx={{
-                    color: "#000",
-                    textAlign: "justify",
-                    fontVariantNumeric: "lining-nums proportional-nums",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "normal",
-                    marginTop: "0px",
-                  }}
-                >
-                  Showing Information for Bale: {scanResultWebCam}
-                </Typography>
-              )}
-            </Grid> */}
             <Grid
               item
               xs={12}
@@ -230,7 +202,17 @@ function Scan() {
                 marginBottom: "26px",
               }}
             >
-              {bale ? (
+              {loading ? ( // Check if still loading
+                <Typography
+                  sx={{
+                    color: "#000",
+                    textAlign: "justify",
+                    fontSize: "16px",
+                  }}
+                >
+                  Loading...
+                </Typography>
+              ) : bale ? (
                 <Box>
                   <Typography
                     sx={{
@@ -286,18 +268,9 @@ function Scan() {
                   >
                     Time: {bale.time || "Time"}
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      textAlign: "justify",
-                      fontSize: "16px",
-                    }}
-                  >
-                    Status: {bale.status || "Status"}
-                  </Typography>
                 </Box>
               ) : (
-                scanResultWebCam && ( // Only render if scanResultWebCam has a value
+                scanResultWebCam && (
                   <Typography
                     sx={{
                       color: "#000",
