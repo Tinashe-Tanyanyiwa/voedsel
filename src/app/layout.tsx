@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Voedsel Tobacco",
+  title: "Leaf Exchange Africa",
   description:
-    "Voedsel Tobaaco - wholly indigenous market leader in tobacco contract growing, merchanting, manufacturing and ultimately export of all tobaccos in Zimbabwe.",
+    "Leaf Exchange Africa - wholly indigenous market leader in tobacco contract growing, merchanting, manufacturing and ultimately export of all tobaccos in Zimbabwe.",
 };
 
 

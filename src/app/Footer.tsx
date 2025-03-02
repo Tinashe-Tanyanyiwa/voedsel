@@ -81,7 +81,7 @@ function Footer() {
               marginTop: "0px",
             }}
           >
-            ©{year} Copyright Voedsel Tobacco International. All Rights Reserved.
+            ©{year} Copyright Leaf Exchange Africa. All Rights Reserved.
           </Typography>
         </Grid>
       </Grid>
@@ -124,7 +124,7 @@ function Footer() {
               margin: "0px",
             }}
           >
-            Designed by Voedsel Tobacco International.
+            Designed by Leaf Exchange Africa.
           </Typography>
         </Grid>
       </Grid>

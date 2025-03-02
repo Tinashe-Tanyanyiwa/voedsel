@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import Image from "next/image";
-import Logo from "../../public/Images/Logo.png";
+import Logo from "../../public/Images/LEAlogo.png";
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
 import Generalnavbar from "./Generalnavbar.json";
@@ -88,7 +88,7 @@ function Navigation() {
                 <Image
                   src={Logo}
                   style={{ height: "90px", width: "auto" }}
-                  alt="Voedsel Tobacco Logo"
+                  alt="Leaf Exchange Africa Logo"
                   className="logoTwo"
                 />
               </motion.div>

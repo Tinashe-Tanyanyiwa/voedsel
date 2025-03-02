@@ -284,8 +284,8 @@ const Page = ({ params }: PageProps) => {
 
   const deleteBale = async (id: number) => {
     try {
-      setOpenDialog(true);
       setUpdateIDDelete(id);
+      setOpenDialog(true);
       console.log("The ID for Delete Is:", id);
     } catch (error) {
       console.log(error);
@@ -653,7 +653,7 @@ const Page = ({ params }: PageProps) => {
                                 </Button>
                                 <Modal
                                   open={open}
-                                  onClose={handleClose}
+                                  // onClose={handleClose}
                                   aria-labelledby="modal-modal-title"
                                   aria-describedby="modal-modal-description"
                                 >
@@ -728,16 +728,16 @@ const Page = ({ params }: PageProps) => {
                                             </Accordion>
                                             <Accordion
                                               slotProps={{
-                                                transition: { timeout: 0 },
+                                                transition: {
+                                                  timeout: 0,
+                                                  unmountOnExit: true,
+                                                },
                                               }}
                                             >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
                                                 aria-controls="panel1bh-seedvariant"
                                                 id="panelseedvariant"
-                                                onClick={(event) => {
-                                                  event.preventDefault();
-                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -807,16 +807,16 @@ const Page = ({ params }: PageProps) => {
                                             </Accordion>
                                             <Accordion
                                               slotProps={{
-                                                transition: { timeout: 0 },
+                                                transition: {
+                                                  timeout: 0,
+                                                  unmountOnExit: true,
+                                                },
                                               }}
                                             >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
                                                 aria-controls="panel1bh-netweight"
                                                 id="panelnetweight"
-                                                onClick={(event) => {
-                                                  event.preventDefault();
-                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -882,9 +882,6 @@ const Page = ({ params }: PageProps) => {
                                                 expandIcon={<ExpandMoreIcon />}
                                                 aria-controls="panel1bh-time"
                                                 id="paneltime"
-                                                onClick={(event) => {
-                                                  event.preventDefault();
-                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -939,16 +936,16 @@ const Page = ({ params }: PageProps) => {
                                             </Accordion>
                                             <Accordion
                                               slotProps={{
-                                                transition: { timeout: 0 },
+                                                transition: {
+                                                  timeout: 0,
+                                                  unmountOnExit: true,
+                                                },
                                               }}
                                             >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
                                                 aria-controls="panel1bh-grade"
                                                 id="panelgrade"
-                                                onClick={(event) => {
-                                                  event.preventDefault();
-                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -1016,16 +1013,16 @@ const Page = ({ params }: PageProps) => {
                                             </Accordion>
                                             <Accordion
                                               slotProps={{
-                                                transition: { timeout: 0 },
+                                                transition: {
+                                                  timeout: 0,
+                                                  unmountOnExit: true,
+                                                },
                                               }}
                                             >
                                               <AccordionSummary
                                                 expandIcon={<ExpandMoreIcon />}
                                                 aria-controls="panel1bh-balestatus"
                                                 id="panelstatus"
-                                                 onClick={(event) => {
-                                                  event.preventDefault();
-                                                }}
                                               >
                                                 <Typography
                                                   component="span"
@@ -1138,7 +1135,7 @@ const Page = ({ params }: PageProps) => {
                                 </Button>
                                 <Dialog
                                   open={openDialog}
-                                  onClose={handleCloseDialog}
+                                  // onClose={handleCloseDialog}
                                   aria-labelledby="alert-dialog-title"
                                   aria-describedby="alert-dialog-description"
                                 >

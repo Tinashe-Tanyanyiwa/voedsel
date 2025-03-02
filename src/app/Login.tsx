@@ -20,7 +20,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Logo from "../../public/Images/Logo.png";
+import Logo from "../../public/Images/LEAlogo.png";
 import TextField from "@mui/material/TextField";
 import FilledInput from "@mui/material/FilledInput";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -241,7 +241,7 @@ function Login() {
               >
                 <Image
                   src={Logo}
-                  alt={"Voedsel Logo"}
+                  alt={"Leaf Exchange Africa Logo"}
                   style={{
                     width: "auto",
                     height: "90px",
@@ -261,11 +261,11 @@ function Login() {
           className="column"
           sx={{
             display: "flex",
-            padding: "0px 40px",
-            paddingLeft: "40px !important",
+            padding: "0px 80px",
+            paddingLeft: "80px !important",
             alignItems: "center",
             width: "100%",
-            marginTop: "0 px !important",
+            marginTop: "0px !important",
             justifyContent: "center",
           }}
         >
